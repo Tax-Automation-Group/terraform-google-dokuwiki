@@ -174,6 +174,7 @@ resource "google_cloud_run_v2_service" "dokuwiki_nginx_reverse_proxy" {
   location     = var.region
   name         = "dokuwiki-nginx-reverse-proxy"
   project      = var.project_id
+  deletion_protection = false
 
   template {
     containers {
