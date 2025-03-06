@@ -158,6 +158,7 @@ resource "google_compute_instance" "dokuwiki_container_vm" {
   }
 
   shielded_instance_config {
+    enable_secure_boot = true
     enable_integrity_monitoring = true
     enable_vtpm                 = true
   }
