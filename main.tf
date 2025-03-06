@@ -29,9 +29,9 @@ resource "google_compute_address" "dokuwiki_internal_static_ip" {
 }
 
 resource "google_compute_resource_policy" "dokuwiki_storage_policy" {
-  name   = "dokuwiki-storage-snapshot-policy"
+  name    = "dokuwiki-storage-snapshot-policy"
   project = var.project_id
-  region = var.region
+  region  = var.region
   snapshot_schedule_policy {
     schedule {
       daily_schedule {
@@ -54,6 +54,9 @@ resource "google_compute_disk" "dokuwiki_storage" {
   zone                      = var.zone
   lifecycle {
     prevent_destroy = true
+    ignore_changes = [
+      snapshot
+    ]
   }
 }
 
@@ -168,12 +171,12 @@ resource "google_compute_instance" "dokuwiki_container_vm" {
 }
 
 resource "google_cloud_run_v2_service" "dokuwiki_nginx_reverse_proxy" {
-  client       = "cloud-console"
-  ingress      = "INGRESS_TRAFFIC_ALL"
-  launch_stage = "GA"
-  location     = var.region
-  name         = "dokuwiki-nginx-reverse-proxy"
-  project      = var.project_id
+  client              = "cloud-console"
+  ingress             = "INGRESS_TRAFFIC_ALL"
+  launch_stage        = "GA"
+  location            = var.region
+  name                = "dokuwiki-nginx-reverse-proxy"
+  project             = var.project_id
   deletion_protection = false
 
   template {

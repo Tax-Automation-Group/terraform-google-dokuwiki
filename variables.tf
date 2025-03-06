@@ -59,7 +59,7 @@ variable "nginx_image" {
 variable "service_accoun_id" {
   type        = string
   description = "Service account name for the VM instance and Cloud Run service"
-  default     = "dokuwiki-deployment-sa" 
+  default     = "dokuwiki-deployment-sa"
 }
 
 variable "dokuwiki_image" {
@@ -93,19 +93,19 @@ variable "dns_managed_zone" {
 variable "max_snapshot_retention_days" {
   type        = number
   description = "Maximum retention days for the docuwiki-storage snapshot"
-  default = 7
+  default     = 7
 }
 
 variable "vpc_network" {
   type        = string
   description = "VPC network for the resources"
-  default = "default"
+  default     = "default"
 }
 
 variable "vpc_subnetwork" {
   type        = string
   description = "VPC subnetwork for the resources"
-  default = "default"
+  default     = "default"
 }
 
 
