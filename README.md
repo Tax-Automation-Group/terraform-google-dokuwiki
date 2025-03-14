@@ -17,9 +17,9 @@ Terraform module which deploys [DokuWiki](https://www.dokuwiki.org/dokuwiki) usi
 
 ## Usage
 ```hcl
-module "dockwiki" {
+module "dokuwiki" {
   source  = "Tax-Automation-Group/dokuwiki/google"
-  version = "1.0.0"
+  version = "1.0.2"
   project_id = "project-id"
   storage_bucket_name = "bucket-name"
   domain_name = "wiki.example.com"
